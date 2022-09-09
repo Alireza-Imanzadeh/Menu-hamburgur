@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="globaldef.css">
+    <title>Document</title>
+    <style>
+        .zIndex1 {
+            z-index: 4 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="box">
+
+            <div class="firstMenu" onclick="_popMenu()">
+                <span class=""></span>
+                <span class=""></span>
+                <span class=""></span>
+            </div>
+
+            <div class="lastMenu" onclick="closeMenu()">
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="cover">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <ul id="list">
+                <li>login </li>
+                <li>Create account </li>
+                <li>support</li>
+                <li>about</li>
+            </ul>
+        </div>
+    </main>
+</body>
+<script>
+    //  strart def variables
+    let _spanOpen = document.querySelectorAll('.firstMenu>span')
+    let _spanClose = document.querySelectorAll('.lastMenu>span')
+    let _div = document.querySelectorAll('.cover>div')
+    let _menu = document.getElementsByTagName('ul')[0]
+    let _box = document.getElementsByClassName('box')[0]
+    let _lastName = document.getElementsByClassName('lastMenu')[0]
+    //  end def variables
+
+    // start open menu
+    function _popMenu() {
+        _spanOpen[0].style.transform = 'rotate(-45deg) translate(110px, 17px)'
+        _spanOpen[1].style.transform = 'rotate(-45deg) translate(110px, 20px)'
+        _spanOpen[2].style.transform = 'rotate(-45deg) translate(115px, 33px)'
+        _div[0].style.transform = 'scalex(0)'
+        _div[1].style.transform = 'scalex(0)'
+        _div[2].style.transform = 'scalex(0)'
+        _menu.style.transform = 'translateY(0)'
+        _menu.style.opacity = '1'
+        _spanClose[0].style.transform = 'rotate(45deg) translate(0 , 0)'
+        _spanClose[1].style.transform = 'rotate(-45deg) translate(0 , 0)'
+        _box.style.background = 'white'
+        _lastName.classList.add('zIndex1')
+    }
+    // start close menu
+    function closeMenu() {
+        _spanOpen[0].style.transform = 'rotate(-45deg) translate(-5px, 20px)'
+        _spanOpen[1].style.transform = 'rotate(-45deg) translate(-7px, 25px)'
+        _spanOpen[2].style.transform = 'rotate(-45deg) translate(0px, 40px)'
+        _div[0].style.transform = 'scalex(1)'
+        _div[1].style.transform = 'scalex(1)'
+        _div[2].style.transform = 'scalex(1.1)'
+        _menu.style.transform = 'translateY(100%)'
+        _menu.style.opacity = '0'
+        _spanClose[0].style.transform = 'rotate(45deg) translate(-90px,-10px)'
+        _spanClose[1].style.transform = ' rotate(-45deg) translate(90px,-10px)'
+        _box.style.background = '#6295CA'
+        _lastName.classList.remove('zIndex1')
+    }
+
+</script>
+
+</html>
